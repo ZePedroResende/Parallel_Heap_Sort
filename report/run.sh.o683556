@@ -1,0 +1,109 @@
+Cleaning...
+
+         %%%%%%
+         %%%\__/%
+         %%%%"""%
+         %%c ^\^%
+          %\ _=/                .
+          _.'_(               .::
+      .'`\     `._    _   _..;:::'
+     /    '._  .' \ =/ (=(:]::;:::.
+     \__./__.``_/_/ / /     ';::;:.
+     / / )    / \ \/ /        '::.
+    / /.'`-._(   \  /          '.
+   / /'      `\   ``
+  /.(          \
+  \_(`";-..___  \
+       |=*==||```
+        \   ||
+         \  ||
+          ) ))
+         /  ||
+         \  ||
+          )_||
+         (  \\\
+          Y\__\\
+g++ -M -std=c++11 -Wall -Wextra -Wno-unused-parameter -pedantic -fopenmp -O3 -I include src/main.cpp -o build/main.d 
+g++ -M -std=c++11 -Wall -Wextra -Wno-unused-parameter -pedantic -fopenmp -O3 -I include src/parallel.cpp -o build/parallel.d 
+g++ -M -std=c++11 -Wall -Wextra -Wno-unused-parameter -pedantic -fopenmp -O3 -I include src/sequencial.cpp -o build/sequencial.d 
+g++ -M -std=c++11 -Wall -Wextra -Wno-unused-parameter -pedantic -fopenmp -O3 -I include src/test.cpp -o build/test.d 
+g++ -c -std=c++11 -Wall -Wextra -Wno-unused-parameter -pedantic -fopenmp -O3 -I include src/main.cpp -o build/main.o 
+g++ -c -std=c++11 -Wall -Wextra -Wno-unused-parameter -pedantic -fopenmp -O3 -I include src/parallel.cpp -o build/parallel.o 
+g++ -c -std=c++11 -Wall -Wextra -Wno-unused-parameter -pedantic -fopenmp -O3 -I include src/sequencial.cpp -o build/sequencial.o 
+g++ -c -std=c++11 -Wall -Wextra -Wno-unused-parameter -pedantic -fopenmp -O3 -I include src/test.cpp -o build/test.o 
+g++ -std=c++11 -Wall -Wextra -Wno-unused-parameter -pedantic -fopenmp -O3 -I include -o bin/out build/main.o build/parallel.o build/sequencial.o build/test.o 
+array size 25399997 time: 10.64
+ 2 array size25399997 time: 4.11
+percentagem : 61.3722%
+4 array size25399997 time: 2.73
+percentagem : 74.3421%
+8 array size25399997 time: 2.83
+percentagem : 73.4023%
+16 array size25399997 time: 3.12
+percentagem : 70.6767%
+32 array size25399997 time: 4.25
+percentagem : 60.0564%
+64 array size25399997 time: 2.73
+percentagem : 74.3421%
+128 array size25399997 time: 2.68
+percentagem : 74.812%
+array size 25399997 time: 9.74
+ 2 array size25399997 time: 4.11
+percentagem : 57.8029%
+4 array size25399997 time: 2.13
+percentagem : 78.1314%
+8 array size25399997 time: 2.27
+percentagem : 76.694%
+16 array size25399997 time: 3.15
+percentagem : 67.6592%
+32 array size25399997 time: 4.39
+percentagem : 54.9281%
+64 array size25399997 time: 2.71
+percentagem : 72.1766%
+128 array size25399997 time: 2.28
+percentagem : 76.5914%
+array size 25399997 time: 10.65
+ 2 array size25399997 time: 4.11
+percentagem : 61.4084%
+4 array size25399997 time: 2.75
+percentagem : 74.1784%
+8 array size25399997 time: 2.85
+percentagem : 73.2394%
+16 array size25399997 time: 3.07
+percentagem : 71.1737%
+32 array size25399997 time: 4.36
+percentagem : 59.061%
+64 array size25399997 time: 2.28
+percentagem : 78.5915%
+128 array size25399997 time: 2.2
+percentagem : 79.3428%
+array size 25399997 time: 10.7
+ 2 array size25399997 time: 4.11
+percentagem : 61.5888%
+4 array size25399997 time: 2.74
+percentagem : 74.3925%
+8 array size25399997 time: 2.3
+percentagem : 78.5047%
+16 array size25399997 time: 3.1
+percentagem : 71.0281%
+32 array size25399997 time: 3.7
+percentagem : 65.4205%
+64 array size25399997 time: 2.71
+percentagem : 74.6729%
+128 array size25399997 time: 2.31001
+percentagem : 78.4112%
+array size 25399997 time: 8.42
+ 2 array size25399997 time: 3.16
+percentagem : 62.4703%
+4 array size25399997 time: 2.66
+percentagem : 68.4086%
+8 array size25399997 time: 2.86
+percentagem : 66.0332%
+16 array size25399997 time: 2.47
+percentagem : 70.6651%
+32 array size25399997 time: 3.71
+percentagem : 55.9383%
+64 array size25399997 time: 2.15
+percentagem : 74.4655%
+128 array size25399997 time: 2.28
+percentagem : 72.9216%
