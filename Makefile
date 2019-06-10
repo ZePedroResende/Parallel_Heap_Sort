@@ -9,9 +9,9 @@
 SHELL       = /bin/sh
 detected_OS := $(shell sh -c 'uname -s 2>/dev/null || echo not')
 BIN_NAME    = out
-CC          = g++
-LD          = g++
-CFLAGS      = -std=c++11 -Wall -Wextra -Wno-unused-parameter -pedantic -fopenmp
+CC          = g++-8
+LD          = g++-8
+CFLAGS      = -Wall -Wextra -Wno-unused-parameter -pedantic -fopenmp
 
 ifeq ($(DEBUG), yes)
 	CFLAGS += -O0 -g
