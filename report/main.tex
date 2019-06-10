@@ -90,7 +90,7 @@ Nesta implementação do algoritmo heap sort sequencial utilizamos o codigo disp
 Com o intuito de paralelizar e acelarar este algoritmo depois de alguma pesquisa e experimentação chegamos a uma implementação na qual dividimos o array em varias hheaps mais pequenas de tamanho constante (sempre que possivel). 
 \par Assim, utilizamos o simples algoritmo sequencial mas com ajuda de locks e de threads paralelizamos o algoritmo. Basicamente, em vez de termos apenas um fio de execução, iremos ter N fios de execução.
 \par Todavia esta solução trouxe-nos bastantes problemas visto que havia data race, e nem sempre a ordem pelo que os siftDowns eram feitos, eram os corretos, acabando assim por se construir um array ordenado diferente do correto.
-\para Para resolver este problema, decidiu-se utilizar locks para termos a certeza que nenhuma thread estava a mexer em algo ao mesmo tempo que outra, e, para além disto, utilizamos schedule static para garantir que a ordem pela qual os siftDowns eram feitos, era a correta, gerando assim o array ordenado correto.
+\par Para resolver este problema, decidiu-se utilizar locks para termos a certeza que nenhuma thread estava a mexer em algo ao mesmo tempo que outra, e, para além disto, utilizamos schedule static para garantir que a ordem pela qual os siftDowns eram feitos, era a correta, gerando assim o array ordenado correto.
 
 \subsubsection{Sem Locks}
 \par Após concluirmos a versão anterior, percebemos que os locks e o schedule static poderiam influenciar a performance do algoritmo e decidimos tentar criar um algoritmo de paralelização que não utilizasse estas "ferramentas".
@@ -119,7 +119,7 @@ Com o intuito de paralelizar e acelarar este algoritmo depois de alguma pesquisa
   \centering
   \begin{subfigure}{.5\textwidth}
     \centering
-    \includegraphics[width=.9\linewidth]{Charts/Time_performance_w_o_Locks.png}
+    \includegraphics[width=.9\linewidth]{Charts/Time_perfomance_w_o_Locks.png}
 
   \end{subfigure}%
   \begin{subfigure}{.5\textwidth}
@@ -137,6 +137,7 @@ Com o intuito de paralelizar e acelarar este algoritmo depois de alguma pesquisa
   \includegraphics[width=.9\linewidth]{seq.png}
 \end{figure}
 
+\newpage
 \subsubsection{Com Locks}
 \begin{figure}[!htb]
   \centering
@@ -146,7 +147,7 @@ Com o intuito de paralelizar e acelarar este algoritmo depois de alguma pesquisa
 \subsubsection{Sem Locks}
 \begin{figure}[!htb]
   \centering
-  \includegraphics[width=.9\linewidth]{scloks.png}
+  \includegraphics[width=.9\linewidth]{slocks.png}
 \end{figure}
 
 \section{Análise dos Resultados}
