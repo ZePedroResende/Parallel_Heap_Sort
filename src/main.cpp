@@ -74,254 +74,254 @@ int main(int argc, char* argv[]) {
   auto posl = after - before;
   cout << "array size " << size << " time: " << posl << endl;
   
-  // int* arr1 = arr_par.data();
-  // int* arr2 = new int[size];
+  int* arr1 = arr_par.data();
+  int* arr2 = new int[size];
 
-  // before = static_cast<float>(clock()) / CLOCKS_PER_SEC;
-  // sequencial::parallel_heap_sort(&arr1, size, 2, &arr2);
-  // after = static_cast<float>(clock()) / CLOCKS_PER_SEC;
-  // auto par = after - before;
-  // cout << " 2 array size" << size << " time: " << par << endl;
-  // cout << "percentagem : " << 100 - (par / posl * 100) << "%" << endl;
+  before = static_cast<float>(clock()) / CLOCKS_PER_SEC;
+  sequencial::parallel_heap_sort(&arr1, size, 2, &arr2);
+  after = static_cast<float>(clock()) / CLOCKS_PER_SEC;
+  auto par = after - before;
+  cout << " 2 array size" << size << " time: " << par << endl;
+  cout << "percentagem : " << 100 - (par / posl * 100) << "%" << endl;
 
-  // auto equal = true;
-  // for (auto i = 0; i < arr.size(); ++i) {
-  //   equal = equal && (arr.at(i) == arr1[i]);
-  //   if (!equal) break;
-  // }
+  auto equal = true;
+  for (auto i = 0; i < arr.size(); ++i) {
+    equal = equal && (arr.at(i) == arr1[i]);
+    if (!equal) break;
+  }
   
-  // equal ? cout << "Equal !" << endl : cout << "Different :(" << endl;
+  equal ? cout << "Equal !" << endl : cout << "Different :(" << endl;
 
-  // arr1 = arr_par.data();
-  // arr2 = new int[size];
+  arr1 = arr_par.data();
+  arr2 = new int[size];
 
-  // before = static_cast<float>(clock()) / CLOCKS_PER_SEC;
-  // sequencial::parallel_heap_sort_with_lock(&arr1, size, 2, &arr2);
-  // after = static_cast<float>(clock()) / CLOCKS_PER_SEC;
-  // par = after - before;
-  // cout << " 2 with locks | array size" << size << " time: " << par << endl;
-  // cout << "percentagem : " << 100 - (par / posl * 100) << "%" << endl;
+  before = static_cast<float>(clock()) / CLOCKS_PER_SEC;
+  sequencial::parallel_heap_sort_with_lock(&arr1, size, 2, &arr2);
+  after = static_cast<float>(clock()) / CLOCKS_PER_SEC;
+  par = after - before;
+  cout << " 2 with locks | array size" << size << " time: " << par << endl;
+  cout << "percentagem : " << 100 - (par / posl * 100) << "%" << endl;
 
-  // equal = true;
-  // for (auto i = 0; i < arr.size(); ++i) {
-  //   equal = equal && (arr.at(i) == arr1[i]);
-  //   if (!equal) break;
-  // }
+  equal = true;
+  for (auto i = 0; i < arr.size(); ++i) {
+    equal = equal && (arr.at(i) == arr1[i]);
+    if (!equal) break;
+  }
   
-  // equal ? cout << "Equal !" << endl : cout << "Different :(" << endl;
+  equal ? cout << "Equal !" << endl : cout << "Different :(" << endl;
 
-  // before = static_cast<float>(clock()) / CLOCKS_PER_SEC;
-  // sequencial::parallel_heap_sort(&arr1, arr.size(), 4, &arr2);
-  // after = static_cast<float>(clock()) / CLOCKS_PER_SEC;
-  // par = after - before;
-  // cout << "4 array size" << arr.size() << " time: " << par << endl;
-  // cout << "percentagem : " << 100 - (par / posl * 100) << "%" << endl;
+  before = static_cast<float>(clock()) / CLOCKS_PER_SEC;
+  sequencial::parallel_heap_sort(&arr1, arr.size(), 4, &arr2);
+  after = static_cast<float>(clock()) / CLOCKS_PER_SEC;
+  par = after - before;
+  cout << "4 array size" << arr.size() << " time: " << par << endl;
+  cout << "percentagem : " << 100 - (par / posl * 100) << "%" << endl;
 
-  // equal = true;
-  // for (auto i = 0; i < arr.size(); ++i) {
-  //   equal = equal && (arr.at(i) == arr1[i]);
-  //   if (!equal) break;
-  // }
+  equal = true;
+  for (auto i = 0; i < arr.size(); ++i) {
+    equal = equal && (arr.at(i) == arr1[i]);
+    if (!equal) break;
+  }
   
-  // equal ? cout << "Equal !" << endl : cout << "Different :(" << endl;
+  equal ? cout << "Equal !" << endl : cout << "Different :(" << endl;
 
-  // arr1 = arr_par.data();
-  // arr2 = new int[size];
+  arr1 = arr_par.data();
+  arr2 = new int[size];
 
-  // before = static_cast<float>(clock()) / CLOCKS_PER_SEC;
-  // sequencial::parallel_heap_sort_with_lock(&arr1, size, 4, &arr2);
-  // after = static_cast<float>(clock()) / CLOCKS_PER_SEC;
-  // par = after - before;
-  // cout << " 4 with locks | array size" << size << " time: " << par << endl;
-  // cout << "percentagem : " << 100 - (par / posl * 100) << "%" << endl;
+  before = static_cast<float>(clock()) / CLOCKS_PER_SEC;
+  sequencial::parallel_heap_sort_with_lock(&arr1, size, 4, &arr2);
+  after = static_cast<float>(clock()) / CLOCKS_PER_SEC;
+  par = after - before;
+  cout << " 4 with locks | array size" << size << " time: " << par << endl;
+  cout << "percentagem : " << 100 - (par / posl * 100) << "%" << endl;
 
-  // equal = true;
-  // for (auto i = 0; i < arr.size(); ++i) {
-  //   equal = equal && (arr.at(i) == arr1[i]);
-  //   if (!equal) break;
-  // }
+  equal = true;
+  for (auto i = 0; i < arr.size(); ++i) {
+    equal = equal && (arr.at(i) == arr1[i]);
+    if (!equal) break;
+  }
   
-  // equal ? cout << "Equal !" << endl : cout << "Different :(" << endl;
+  equal ? cout << "Equal !" << endl : cout << "Different :(" << endl;
 
-  // arr1 = arr_par.data();
-  // arr2 = new int[arr.size()];
+  arr1 = arr_par.data();
+  arr2 = new int[arr.size()];
 
-  // before = static_cast<float>(clock()) / CLOCKS_PER_SEC;
-  // sequencial::parallel_heap_sort(&arr1, arr.size(), 8, &arr2);
-  // after = static_cast<float>(clock()) / CLOCKS_PER_SEC;
-  // par = after - before;
-  // cout << "8 array size" << arr.size() << " time: " << par << endl;
-  // cout << "percentagem : " << 100 - (par / posl * 100) << "%" << endl;
+  before = static_cast<float>(clock()) / CLOCKS_PER_SEC;
+  sequencial::parallel_heap_sort(&arr1, arr.size(), 8, &arr2);
+  after = static_cast<float>(clock()) / CLOCKS_PER_SEC;
+  par = after - before;
+  cout << "8 array size" << arr.size() << " time: " << par << endl;
+  cout << "percentagem : " << 100 - (par / posl * 100) << "%" << endl;
 
-  // equal = true;
-  // for (auto i = 0; i < arr.size(); ++i) {
-  //   equal = equal && (arr.at(i) == arr1[i]);
-  //   if (!equal) break;
-  // }
+  equal = true;
+  for (auto i = 0; i < arr.size(); ++i) {
+    equal = equal && (arr.at(i) == arr1[i]);
+    if (!equal) break;
+  }
   
-  // equal ? cout << "Equal !" << endl : cout << "Different :(" << endl;
+  equal ? cout << "Equal !" << endl : cout << "Different :(" << endl;
 
-  // arr1 = arr_par.data();
-  // arr2 = new int[size];
+  arr1 = arr_par.data();
+  arr2 = new int[size];
 
-  // before = static_cast<float>(clock()) / CLOCKS_PER_SEC;
-  // sequencial::parallel_heap_sort_with_lock(&arr1, size, 8, &arr2);
-  // after = static_cast<float>(clock()) / CLOCKS_PER_SEC;
-  // par = after - before;
-  // cout << " 8 with locks | array size" << size << " time: " << par << endl;
-  // cout << "percentagem : " << 100 - (par / posl * 100) << "%" << endl;
+  before = static_cast<float>(clock()) / CLOCKS_PER_SEC;
+  sequencial::parallel_heap_sort_with_lock(&arr1, size, 8, &arr2);
+  after = static_cast<float>(clock()) / CLOCKS_PER_SEC;
+  par = after - before;
+  cout << " 8 with locks | array size" << size << " time: " << par << endl;
+  cout << "percentagem : " << 100 - (par / posl * 100) << "%" << endl;
 
-  // equal = true;
-  // for (auto i = 0; i < arr.size(); ++i) {
-  //   equal = equal && (arr.at(i) == arr1[i]);
-  //   if (!equal) break;
-  // }
+  equal = true;
+  for (auto i = 0; i < arr.size(); ++i) {
+    equal = equal && (arr.at(i) == arr1[i]);
+    if (!equal) break;
+  }
   
-  // equal ? cout << "Equal !" << endl : cout << "Different :(" << endl;
+  equal ? cout << "Equal !" << endl : cout << "Different :(" << endl;
 
-  // arr1 = arr_par.data();
-  // arr2 = new int[arr.size()];
+  arr1 = arr_par.data();
+  arr2 = new int[arr.size()];
 
-  // before = static_cast<float>(clock()) / CLOCKS_PER_SEC;
-  // sequencial::parallel_heap_sort(&arr1, arr.size(), 16, &arr2);
-  // after = static_cast<float>(clock()) / CLOCKS_PER_SEC;
-  // par = after - before;
-  // cout << "16 array size" << arr.size() << " time: " << par << endl;
-  // cout << "percentagem : " << 100 - (par / posl * 100) << "%" << endl;
+  before = static_cast<float>(clock()) / CLOCKS_PER_SEC;
+  sequencial::parallel_heap_sort(&arr1, arr.size(), 16, &arr2);
+  after = static_cast<float>(clock()) / CLOCKS_PER_SEC;
+  par = after - before;
+  cout << "16 array size" << arr.size() << " time: " << par << endl;
+  cout << "percentagem : " << 100 - (par / posl * 100) << "%" << endl;
 
-  // equal = true;
-  // for (auto i = 0; i < arr.size(); ++i) {
-  //   equal = equal && (arr.at(i) == arr1[i]);
-  //   if (!equal) break;
-  // }
+  equal = true;
+  for (auto i = 0; i < arr.size(); ++i) {
+    equal = equal && (arr.at(i) == arr1[i]);
+    if (!equal) break;
+  }
   
-  // equal ? cout << "Equal !" << endl : cout << "Different :(" << endl;
+  equal ? cout << "Equal !" << endl : cout << "Different :(" << endl;
 
-  // arr1 = arr_par.data();
-  // arr2 = new int[size];
+  arr1 = arr_par.data();
+  arr2 = new int[size];
 
-  // before = static_cast<float>(clock()) / CLOCKS_PER_SEC;
-  // sequencial::parallel_heap_sort_with_lock(&arr1, size, 16, &arr2);
-  // after = static_cast<float>(clock()) / CLOCKS_PER_SEC;
-  // par = after - before;
-  // cout << " 16 with locks | array size" << size << " time: " << par << endl;
-  // cout << "percentagem : " << 100 - (par / posl * 100) << "%" << endl;
+  before = static_cast<float>(clock()) / CLOCKS_PER_SEC;
+  sequencial::parallel_heap_sort_with_lock(&arr1, size, 16, &arr2);
+  after = static_cast<float>(clock()) / CLOCKS_PER_SEC;
+  par = after - before;
+  cout << " 16 with locks | array size" << size << " time: " << par << endl;
+  cout << "percentagem : " << 100 - (par / posl * 100) << "%" << endl;
 
-  // equal = true;
-  // for (auto i = 0; i < arr.size(); ++i) {
-  //   equal = equal && (arr.at(i) == arr1[i]);
-  //   if (!equal) break;
-  // }
+  equal = true;
+  for (auto i = 0; i < arr.size(); ++i) {
+    equal = equal && (arr.at(i) == arr1[i]);
+    if (!equal) break;
+  }
   
-  // equal ? cout << "Equal !" << endl : cout << "Different :(" << endl;
+  equal ? cout << "Equal !" << endl : cout << "Different :(" << endl;
 
-  // arr1 = arr_par.data();
-  // arr2 = new int[arr.size()];
+  arr1 = arr_par.data();
+  arr2 = new int[arr.size()];
 
-  // before = static_cast<float>(clock()) / CLOCKS_PER_SEC;
-  // sequencial::parallel_heap_sort(&arr1, arr.size(), 32, &arr2);
-  // after = static_cast<float>(clock()) / CLOCKS_PER_SEC;
-  // par = after - before;
-  // cout << "32 array size" << arr.size() << " time: " << par << endl;
-  // cout << "percentagem : " << 100 - (par / posl * 100) << "%" << endl;
+  before = static_cast<float>(clock()) / CLOCKS_PER_SEC;
+  sequencial::parallel_heap_sort(&arr1, arr.size(), 32, &arr2);
+  after = static_cast<float>(clock()) / CLOCKS_PER_SEC;
+  par = after - before;
+  cout << "32 array size" << arr.size() << " time: " << par << endl;
+  cout << "percentagem : " << 100 - (par / posl * 100) << "%" << endl;
 
-  // equal = true;
-  // for (auto i = 0; i < arr.size(); ++i) {
-  //   equal = equal && (arr.at(i) == arr1[i]);
-  //   if (!equal) break;
-  // }
+  equal = true;
+  for (auto i = 0; i < arr.size(); ++i) {
+    equal = equal && (arr.at(i) == arr1[i]);
+    if (!equal) break;
+  }
   
-  // equal ? cout << "Equal !" << endl : cout << "Different :(" << endl;
+  equal ? cout << "Equal !" << endl : cout << "Different :(" << endl;
 
-  // arr1 = arr_par.data();
-  // arr2 = new int[size];
+  arr1 = arr_par.data();
+  arr2 = new int[size];
 
-  // before = static_cast<float>(clock()) / CLOCKS_PER_SEC;
-  // sequencial::parallel_heap_sort_with_lock(&arr1, size, 32, &arr2);
-  // after = static_cast<float>(clock()) / CLOCKS_PER_SEC;
-  // par = after - before;
-  // cout << " 32 with locks | array size" << size << " time: " << par << endl;
-  // cout << "percentagem : " << 100 - (par / posl * 100) << "%" << endl;
+  before = static_cast<float>(clock()) / CLOCKS_PER_SEC;
+  sequencial::parallel_heap_sort_with_lock(&arr1, size, 32, &arr2);
+  after = static_cast<float>(clock()) / CLOCKS_PER_SEC;
+  par = after - before;
+  cout << " 32 with locks | array size" << size << " time: " << par << endl;
+  cout << "percentagem : " << 100 - (par / posl * 100) << "%" << endl;
 
-  // equal = true;
-  // for (auto i = 0; i < arr.size(); ++i) {
-  //   equal = equal && (arr.at(i) == arr1[i]);
-  //   if (!equal) break;
-  // }
+  equal = true;
+  for (auto i = 0; i < arr.size(); ++i) {
+    equal = equal && (arr.at(i) == arr1[i]);
+    if (!equal) break;
+  }
   
-  // equal ? cout << "Equal !" << endl : cout << "Different :(" << endl;
+  equal ? cout << "Equal !" << endl : cout << "Different :(" << endl;
 
-  // arr1 = arr_par.data();
-  // arr2 = new int[arr.size()];
+  arr1 = arr_par.data();
+  arr2 = new int[arr.size()];
 
-  // before = static_cast<float>(clock()) / CLOCKS_PER_SEC;
-  // sequencial::parallel_heap_sort(&arr1, arr.size(), 64, &arr2);
-  // after = static_cast<float>(clock()) / CLOCKS_PER_SEC;
-  // par = after - before;
-  // cout << "64 array size" << arr.size() << " time: " << par << endl;
-  // cout << "percentagem : " << 100 - (par / posl * 100) << "%" << endl;
+  before = static_cast<float>(clock()) / CLOCKS_PER_SEC;
+  sequencial::parallel_heap_sort(&arr1, arr.size(), 64, &arr2);
+  after = static_cast<float>(clock()) / CLOCKS_PER_SEC;
+  par = after - before;
+  cout << "64 array size" << arr.size() << " time: " << par << endl;
+  cout << "percentagem : " << 100 - (par / posl * 100) << "%" << endl;
 
-  // equal = true;
-  // for (auto i = 0; i < arr.size(); ++i) {
-  //   equal = equal && (arr.at(i) == arr1[i]);
-  //   if (!equal) break;
-  // }
+  equal = true;
+  for (auto i = 0; i < arr.size(); ++i) {
+    equal = equal && (arr.at(i) == arr1[i]);
+    if (!equal) break;
+  }
   
-  // equal ? cout << "Equal !" << endl : cout << "Different :(" << endl;
+  equal ? cout << "Equal !" << endl : cout << "Different :(" << endl;
 
-  // arr1 = arr_par.data();
-  // arr2 = new int[size];
+  arr1 = arr_par.data();
+  arr2 = new int[size];
 
-  // before = static_cast<float>(clock()) / CLOCKS_PER_SEC;
-  // sequencial::parallel_heap_sort_with_lock(&arr1, size, 64, &arr2);
-  // after = static_cast<float>(clock()) / CLOCKS_PER_SEC;
-  // par = after - before;
-  // cout << " 64 with locks | array size" << size << " time: " << par << endl;
-  // cout << "percentagem : " << 100 - (par / posl * 100) << "%" << endl;
+  before = static_cast<float>(clock()) / CLOCKS_PER_SEC;
+  sequencial::parallel_heap_sort_with_lock(&arr1, size, 64, &arr2);
+  after = static_cast<float>(clock()) / CLOCKS_PER_SEC;
+  par = after - before;
+  cout << " 64 with locks | array size" << size << " time: " << par << endl;
+  cout << "percentagem : " << 100 - (par / posl * 100) << "%" << endl;
 
-  // equal = true;
-  // for (auto i = 0; i < arr.size(); ++i) {
-  //   equal = equal && (arr.at(i) == arr1[i]);
-  //   if (!equal) break;
-  // }
+  equal = true;
+  for (auto i = 0; i < arr.size(); ++i) {
+    equal = equal && (arr.at(i) == arr1[i]);
+    if (!equal) break;
+  }
   
-  // equal ? cout << "Equal !" << endl : cout << "Different :(" << endl;
+  equal ? cout << "Equal !" << endl : cout << "Different :(" << endl;
 
-  // arr1 = arr_par.data();
-  // arr2 = new int[arr.size()];
+  arr1 = arr_par.data();
+  arr2 = new int[arr.size()];
 
-  // before = static_cast<float>(clock()) / CLOCKS_PER_SEC;
-  // sequencial::parallel_heap_sort(&arr1, arr.size(), 128, &arr2);
-  // after = static_cast<float>(clock()) / CLOCKS_PER_SEC;
-  // par = after - before;
-  // cout << "128 array size" << arr.size() << " time: " << par << endl;
-  // cout << "percentagem : " << 100 - (par / posl * 100) << "%" << endl;
+  before = static_cast<float>(clock()) / CLOCKS_PER_SEC;
+  sequencial::parallel_heap_sort(&arr1, arr.size(), 128, &arr2);
+  after = static_cast<float>(clock()) / CLOCKS_PER_SEC;
+  par = after - before;
+  cout << "128 array size" << arr.size() << " time: " << par << endl;
+  cout << "percentagem : " << 100 - (par / posl * 100) << "%" << endl;
 
-  // equal = true;
-  // for (auto i = 0; i < arr.size(); ++i) {
-  //   equal = equal && (arr.at(i) == arr1[i]);
-  //   if (!equal) break;
-  // }
+  equal = true;
+  for (auto i = 0; i < arr.size(); ++i) {
+    equal = equal && (arr.at(i) == arr1[i]);
+    if (!equal) break;
+  }
   
-  // equal ? cout << "Equal !" << endl : cout << "Different :(" << endl;
+  equal ? cout << "Equal !" << endl : cout << "Different :(" << endl;
 
-  // arr1 = arr_par.data();
-  // arr2 = new int[size];
+  arr1 = arr_par.data();
+  arr2 = new int[size];
 
-  // before = static_cast<float>(clock()) / CLOCKS_PER_SEC;
-  // sequencial::parallel_heap_sort_with_lock(&arr1, size, 128, &arr2);
-  // after = static_cast<float>(clock()) / CLOCKS_PER_SEC;
-  // par = after - before;
-  // cout << " 128 with locks | array size" << size << " time: " << par << endl;
-  // cout << "percentagem : " << 100 - (par / posl * 100) << "%" << endl;
+  before = static_cast<float>(clock()) / CLOCKS_PER_SEC;
+  sequencial::parallel_heap_sort_with_lock(&arr1, size, 128, &arr2);
+  after = static_cast<float>(clock()) / CLOCKS_PER_SEC;
+  par = after - before;
+  cout << " 128 with locks | array size" << size << " time: " << par << endl;
+  cout << "percentagem : " << 100 - (par / posl * 100) << "%" << endl;
 
-  // equal = true;
-  // for (auto i = 0; i < arr.size(); ++i) {
-  //   equal = equal && (arr.at(i) == arr1[i]);
-  //   if (!equal) break;
-  // }
+  equal = true;
+  for (auto i = 0; i < arr.size(); ++i) {
+    equal = equal && (arr.at(i) == arr1[i]);
+    if (!equal) break;
+  }
   
-  // equal ? cout << "Equal !" << endl : cout << "Different :(" << endl;
+  equal ? cout << "Equal !" << endl : cout << "Different :(" << endl;
 
   arr.clear();
   arr_par.clear();
