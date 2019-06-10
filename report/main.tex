@@ -38,11 +38,10 @@
   \textsc{\large Departamento de Informática}\\[2cm] % Major heading such as course name
 
   \HRule \\[0.4cm]
-  { \huge \bfseries Algoritmos Paralelos}\\[0.4cm] % Title of your document
+  { \huge \bfseries Engenharia de Sistemas de Computação}\\[0.4cm] % Title of your document
   \HRule \\[1cm]
 
-  { \Huge \bfseries Escalabilidade de diferentes}\\[0.4cm]
-  { \Huge \bfseries algoritmos paralelos}\\[3cm] % Title of your document
+  { \Huge \bfseries Heap Sort}\\[0.4cm]
   \includegraphics[width=6cm]{logo.png}
   \\[4cm]
 
@@ -50,7 +49,7 @@
   António Sérgio Alves Costa \textsc{A78296}\\
   José Pedro Moreira Resende \textsc{A77486}\\[2cm]
 
-  \large 1 de Junho de 2019
+  \large 10 de Junho de 2019
 
 \end{titlepage}
 
@@ -87,35 +86,80 @@ Nesta implementação do algoritmo heap sort sequencial utilizamos o codigo disp
 
 
 \subsection{Paralelo}
+\subsubsection{Com Locks}
 Com o intuito de paralelizar e acelarar este algoritmo depois de alguma pesquisa e experimentação chegamos a uma implementação na qual dividimos o array em varias hheaps mais pequenas de tamanho constante (sempre que possivel). 
+\par Assim, utilizamos o simples algoritmo sequencial mas com ajuda de locks e de threads paralelizamos o algoritmo. Basicamente, em vez de termos apenas um fio de execução, iremos ter N fios de execução.
+\par Todavia esta solução trouxe-nos bastantes problemas visto que havia data race, e nem sempre a ordem pelo que os siftDowns eram feitos, eram os corretos, acabando assim por se construir um array ordenado diferente do correto.
+\par Para resolver este problema, decidiu-se utilizar locks para termos a certeza que nenhuma thread estava a mexer em algo ao mesmo tempo que outra, e, para além disto, utilizamos schedule static para garantir que a ordem pela qual os siftDowns eram feitos, era a correta, gerando assim o array ordenado correto.
+
+\subsubsection{Sem Locks}
+\par Após concluirmos a versão anterior, percebemos que os locks e o schedule static poderiam influenciar a performance do algoritmo e decidimos tentar criar um algoritmo de paralelização que não utilizasse estas "ferramentas".
 \par Assim tanto as heaps como os arrays ordenados associados a cada uma destas estruturas podem ser calculados e ordenados de forma independente e paralela. 
 \par Utilizamos aqui o scheduler dinamico do omp de forma a distribuir melhor a carga de trabalho entre as threads. 
 \par Apos obtermos varios segmentos ordenados e necessario correu o processo de fundir estes segmenetos de forma a obter um unico array ordenado. 
 \par Para este trabalho foi usado uma heuristica de redução em arvore o que torna todo o processo de merge extremamente efeciente e possivel de executar de forma paralela, uma vez que temos blocos sem dependencias entre si, tirando partido tambem de um scheduler dinamico de forma a que a carga de trabalho seja distribuida pelas threads.
 
-\section{Apresentação e Análise dos Resultados}
-\subsection{Apresentação dos Resultados}
-\subsection{Tempos de execuçao}
+\section{Apresentação Resultados}
+\subsection{Locks}
 \begin{figure}[!htb]
   \centering
   \begin{subfigure}{.5\textwidth}
     \centering
-    \includegraphics[width=.9\linewidth]{TimePerfomance.png}
+    \includegraphics[width=.9\linewidth]{Charts/Time_performance_Locks.png}
 
   \end{subfigure}%
   \begin{subfigure}{.5\textwidth}
     \centering
-    \includegraphics[width=.9\linewidth]{Speedup.png}
+    \includegraphics[width=.9\linewidth]{Charts/SpeedUp_Locks.png}
   \end{subfigure}
 \end{figure}
 
+\subsection{Sem Locks}
+\begin{figure}[!htb]
+  \centering
+  \begin{subfigure}{.5\textwidth}
+    \centering
+    \includegraphics[width=.9\linewidth]{Charts/Time_perfomance_w_o_Locks.png}
+
+  \end{subfigure}%
+  \begin{subfigure}{.5\textwidth}
+    \centering
+    \includegraphics[width=.9\linewidth]{Charts/SpeedUp_w_o_Locks.png}
+  \end{subfigure}
+\end{figure}
+
+
+\subsection{FlameGraph}
+
 \subsubsection{Sequencial}
+\begin{figure}[!htb]
+  \centering
+  \includegraphics[width=.9\linewidth]{seq.png}
+\end{figure}
 
-\subsubsection{Paralelo}
+\newpage
+\subsubsection{Com Locks}
+\begin{figure}[!htb]
+  \centering
+  \includegraphics[width=.9\linewidth]{clocks.png}
+\end{figure}
 
-\subsection{Análise dos Resultados}
+\subsubsection{Sem Locks}
+\begin{figure}[!htb]
+  \centering
+  \includegraphics[width=.9\linewidth]{slocks.png}
+\end{figure}
+
+\section{Análise dos Resultados}
+\par Após ver os gráficos anteriores conseguimos perceber claramente que a paralelização resulta, em ambos os casos. No entanto, percebemos que o algoritmo sem locks é bastante melhor.
+\par Todavia também se pode reparar que chegando às 8 threads o SpeedUp estabeliza em ambos os casos, o que pode ser explicado por estarmos a utilizar o nosso computador pessoal que apenas tem 4 cores.
+\par No que toca aos FlameGraphs, percebe-se claramenteque a implementação sequencial tem um fio de execução muito monótono quando se compara aos outros dois.
 
 \section{Conclusão}
+\par A paralelização de algoritmos nem sempre é fácil, e neste trabalho tivemos um exemplo disso. 
+\par Heapsort é um algoritmo de ordenação extramamente difícil de paralelizar tendo em conta as suas características. Primeiro, é bastante difícil paralelizar a carga de trabalho de um siftDown sem aumentar bastante a complexidade do código e do algoritmo, por outro lado a paralelização é impossível realizar vários siftDowns ao mesmo tempo sem corroer o resultado correto do algoritmo.
+\par Com o perf conseguimos perceber o comportamento dos vários algoritmos implementados, e perceber as suas diferenças. Conseguimos também perceber o que cada algoritmo utiliza do sistema. Por exemplo, com o perf percebe-se claramente qual é o algoritmo que utiliza locks, visto que procurando pelas funções chamadas após a realização do record, há funções que chamam locks.
+\par Em suma, este projeto serviu para percebemos a complexidadede paralelizar algoritmos que às vezes nos parecem bastante básicos, e ao mesmo tempo para ter mais alguma experiência e perceber a importância de ferramentas de profiling como o perf.
 
 \clearpage
 

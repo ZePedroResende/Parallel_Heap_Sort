@@ -11,7 +11,7 @@ detected_OS := $(shell sh -c 'uname -s 2>/dev/null || echo not')
 BIN_NAME    = out
 CC          = g++
 LD          = g++
-CFLAGS      = -std=c++11 -Wall -Wextra -Wno-unused-parameter -pedantic -fopenmp
+CFLAGS      = -Wall -Wextra -Wno-unused-parameter -pedantic -fopenmp
 
 ifeq ($(DEBUG), yes)
 	CFLAGS += -O0 -g
@@ -33,7 +33,6 @@ BUILD_DIR  = build
 SRC        = $(wildcard $(SRC_DIR)/*.cpp)
 OBJ        = $(patsubst $(SRC_DIR)/%.cpp,$(BUILD_DIR)/%.o,$(SRC))
 DEPS       = $(patsubst $(BUILD_DIR)/%.o,$(BUILD_DIR)/%.d,$(OBJ))
-DOC_DIR    = docs
 PROGRAM    = program
 
 vpath %.cpp $(SRC_DIR)
@@ -78,6 +77,5 @@ clean:
 	@cat .art/maid.ascii
 	@rm -rd $(BUILD_DIR)/* 
 	@rm -rd $(BIN_DIR)/*
-	@rm -rd $(DOC_DIR)/*
 	@echo ""
 	@echo "...✓ done!"
