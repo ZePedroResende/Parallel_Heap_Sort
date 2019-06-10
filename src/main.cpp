@@ -5,9 +5,7 @@
 #include <fstream>
 #include <iostream>
 #include <vector>
-#include "parallel.hpp"
 #include "sequencial.hpp"
-#include "test.hpp"
 
 using namespace std;
 
@@ -69,11 +67,11 @@ int main(int argc, char* argv[]) {
 
   float before, after;
   before = static_cast<float>(clock()) / CLOCKS_PER_SEC;
-  test::heap_sort(arr);
+  sequencial::heap_sort(&arr[0], size);
   after = static_cast<float>(clock()) / CLOCKS_PER_SEC;
   auto posl = after - before;
   cout << "array size " << size << " time: " << posl << endl;
-  
+
   int* arr1 = arr_par.data();
   int* arr2 = new int[size];
 
@@ -89,7 +87,7 @@ int main(int argc, char* argv[]) {
     equal = equal && (arr.at(i) == arr1[i]);
     if (!equal) break;
   }
-  
+
   equal ? cout << "Equal !" << endl : cout << "Different :(" << endl;
 
   arr1 = arr_par.data();
@@ -107,7 +105,7 @@ int main(int argc, char* argv[]) {
     equal = equal && (arr.at(i) == arr1[i]);
     if (!equal) break;
   }
-  
+
   equal ? cout << "Equal !" << endl : cout << "Different :(" << endl;
 
   before = static_cast<float>(clock()) / CLOCKS_PER_SEC;
@@ -122,7 +120,7 @@ int main(int argc, char* argv[]) {
     equal = equal && (arr.at(i) == arr1[i]);
     if (!equal) break;
   }
-  
+
   equal ? cout << "Equal !" << endl : cout << "Different :(" << endl;
 
   arr1 = arr_par.data();
@@ -140,7 +138,7 @@ int main(int argc, char* argv[]) {
     equal = equal && (arr.at(i) == arr1[i]);
     if (!equal) break;
   }
-  
+
   equal ? cout << "Equal !" << endl : cout << "Different :(" << endl;
 
   arr1 = arr_par.data();
@@ -158,7 +156,7 @@ int main(int argc, char* argv[]) {
     equal = equal && (arr.at(i) == arr1[i]);
     if (!equal) break;
   }
-  
+
   equal ? cout << "Equal !" << endl : cout << "Different :(" << endl;
 
   arr1 = arr_par.data();
@@ -176,7 +174,7 @@ int main(int argc, char* argv[]) {
     equal = equal && (arr.at(i) == arr1[i]);
     if (!equal) break;
   }
-  
+
   equal ? cout << "Equal !" << endl : cout << "Different :(" << endl;
 
   arr1 = arr_par.data();
@@ -194,7 +192,7 @@ int main(int argc, char* argv[]) {
     equal = equal && (arr.at(i) == arr1[i]);
     if (!equal) break;
   }
-  
+
   equal ? cout << "Equal !" << endl : cout << "Different :(" << endl;
 
   arr1 = arr_par.data();
@@ -212,7 +210,7 @@ int main(int argc, char* argv[]) {
     equal = equal && (arr.at(i) == arr1[i]);
     if (!equal) break;
   }
-  
+
   equal ? cout << "Equal !" << endl : cout << "Different :(" << endl;
 
   arr1 = arr_par.data();
@@ -230,7 +228,7 @@ int main(int argc, char* argv[]) {
     equal = equal && (arr.at(i) == arr1[i]);
     if (!equal) break;
   }
-  
+
   equal ? cout << "Equal !" << endl : cout << "Different :(" << endl;
 
   arr1 = arr_par.data();
@@ -248,7 +246,7 @@ int main(int argc, char* argv[]) {
     equal = equal && (arr.at(i) == arr1[i]);
     if (!equal) break;
   }
-  
+
   equal ? cout << "Equal !" << endl : cout << "Different :(" << endl;
 
   arr1 = arr_par.data();
@@ -266,7 +264,7 @@ int main(int argc, char* argv[]) {
     equal = equal && (arr.at(i) == arr1[i]);
     if (!equal) break;
   }
-  
+
   equal ? cout << "Equal !" << endl : cout << "Different :(" << endl;
 
   arr1 = arr_par.data();
@@ -284,7 +282,7 @@ int main(int argc, char* argv[]) {
     equal = equal && (arr.at(i) == arr1[i]);
     if (!equal) break;
   }
-  
+
   equal ? cout << "Equal !" << endl : cout << "Different :(" << endl;
 
   arr1 = arr_par.data();
@@ -302,7 +300,7 @@ int main(int argc, char* argv[]) {
     equal = equal && (arr.at(i) == arr1[i]);
     if (!equal) break;
   }
-  
+
   equal ? cout << "Equal !" << endl : cout << "Different :(" << endl;
 
   arr1 = arr_par.data();
@@ -320,7 +318,7 @@ int main(int argc, char* argv[]) {
     equal = equal && (arr.at(i) == arr1[i]);
     if (!equal) break;
   }
-  
+
   equal ? cout << "Equal !" << endl : cout << "Different :(" << endl;
 
   arr.clear();
